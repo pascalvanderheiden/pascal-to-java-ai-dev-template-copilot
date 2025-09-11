@@ -1,0 +1,142 @@
+{
+  "name": "Pascal to Java Migration Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "installMaven": "true",
+      "installGradle": "true"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // GitHub Copilot
+        "github.copilot",
+        "github.copilot-chat",
+        
+        // Pascal Development
+        "alefragnani.pascal",
+        "formulahendry.code-runner",
+        "ms-vscode.vscode-json",
+        
+        // Java Development
+        "redhat.java",
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-gradle",
+        "vscjava.vscode-spring-initializr",
+        
+        // General Development
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-eslint",
+        
+        // Git and GitHub
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        
+        // Testing and Quality
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-test-explorer",
+        "sonarsource.sonarlint-vscode",
+        
+        // Documentation
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "bierner.markdown-mermaid",
+        
+        // Docker (for deployment scenarios)
+        "ms-azuretools.vscode-docker"
+      ],
+      
+      "settings": {
+        // Pascal Configuration
+        "pascal.format.indent": 2,
+        "pascal.suggest.autoComplete": true,
+        "code-runner.executorMap": {
+          "pascal": "cd $dir && fpc -Mtp $fileName && ./$fileNameWithoutExt"
+        },
+        "code-runner.runInTerminal": true,
+        "code-runner.preserveFocus": false,
+        "code-runner.clearPreviousOutput": true,
+        
+        // Java Configuration
+        "java.home": "/usr/lib/jvm/msopenjdk-current",
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-17",
+            "path": "/usr/lib/jvm/msopenjdk-current"
+          }
+        ],
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+        "java.test.config": {
+          "workingDirectory": "${workspaceFolder}"
+        },
+        
+        // GitHub Copilot Configuration
+        "github.copilot.enable": {
+          "*": true,
+          "yaml": true,
+          "plaintext": true,
+          "markdown": true,
+          "pascal": true,
+          "java": true
+        },
+        "github.copilot.advanced": {
+          "debug.overrideEngine": "copilot-chat",
+          "debug.testOverrideProxyUrl": "",
+          "debug.overrideProxyUrl": ""
+        },
+        
+        // Editor Configuration
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit",
+          "source.fixAll": "explicit"
+        },
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.rulers": [80, 120],
+        "editor.minimap.enabled": true,
+        "editor.bracketPairColorization.enabled": true,
+        
+        // File Associations
+        "files.associations": {
+          "*.pas": "pascal",
+          "*.pp": "pascal",
+          "*.inc": "pascal"
+        },
+        
+        // Terminal Configuration
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash"
+          }
+        }
+      }
+    }
+  },
+
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  
+  "mounts": [
+    "source=${localWorkspaceFolder}/.vscode,target=/workspaces/${localWorkspaceFolderBasename}/.vscode,type=bind,consistency=cached"
+  ],
+
+  "forwardPorts": [8080, 3000, 5000],
+  
+  "remoteUser": "vscode"
+}

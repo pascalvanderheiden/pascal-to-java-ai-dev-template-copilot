@@ -1,0 +1,21 @@
+{
+    "chat.mcp.autostart": "newAndOutdated",
+    "chat.agent.maxRequests": 100,
+    "chat.tools.autoApprove": true,
+    "pascal.compiler.path": "/opt/homebrew/bin/fpc",
+    "pascal.formatter.engine": "ptop",
+    "code-runner.executorMap": {
+        "pascal": "cd $dir && fpc -Mtp $fileName && ./$fileNameWithoutExt"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.clearPreviousOutput": true,
+    "files.associations": {
+        "*.pas": "pascal",
+        "*.pp": "pascal",
+        "*.inc": "pascal"
+    },
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+}

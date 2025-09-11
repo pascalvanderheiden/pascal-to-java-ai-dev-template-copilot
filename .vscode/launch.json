@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Pascal Program",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "./${fileBasenameNoExtension}",
+      "cwd": "${fileDirname}",
+      "preLaunchTask": "Compile Pascal (Turbo Pascal Mode)"
+    }
+  ]
+}

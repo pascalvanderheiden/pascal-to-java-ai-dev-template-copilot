@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile Pascal (Turbo Pascal Mode)",
+      "type": "shell",
+      "command": "fpc",
+      "args": ["-Mtp", "${file}"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": {
+        "owner": "pascal",
+        "fileLocation": ["relative", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*)\\((\\d+),(\\d+)\\)\\s+(Error|Warning|Note):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "Run Pascal Program",
+      "type": "shell",
+      "command": "./${fileBasenameNoExtension}",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "dependsOn": "Compile Pascal (Turbo Pascal Mode)"
+    },
+    {
+      "label": "Clean Pascal Executables",
+      "type": "shell",
+      "command": "rm",
+      "args": ["-f", "*.o", "*.ppu", "text-adventure-example", "test"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      }
+    }
+  ]
+}

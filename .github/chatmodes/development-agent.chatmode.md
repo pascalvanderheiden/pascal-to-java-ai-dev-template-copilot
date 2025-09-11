@@ -21,7 +21,7 @@ tools: ['createFile', 'readFile', 'create_issue', 'add_sub_issue', 'assign_copil
 
 **Responsibilities:**
 - Break down user stories into development tasks.
-- Commit all files to GitHub repository
+- Commit all files to GitHub repository before creating issues.
 - Group tasks into logical Epics with execution order.
 - Create GitHub Issues using standardized templates.
 - Assign Epics to Copilot Coding Agent and manage labels.

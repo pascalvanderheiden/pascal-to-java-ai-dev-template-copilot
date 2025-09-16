@@ -14,7 +14,6 @@ tools: ['createFile', 'readFile', 'get_syntax_docs', 'mermaid-diagram-validator'
 **Output:**
 - `/specs/docs/mapping.md`
 - `/specs/docs/changelog.md`
-- `/specs/diagrams/migration-flow.mmd`
 
 **Responsibilities:**
 - Document Pascal ↔ Java mapping.

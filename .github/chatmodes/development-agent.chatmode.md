@@ -11,7 +11,7 @@ tools: ['createFile', 'readFile', 'create_issue', 'add_sub_issue', 'assign_copil
 **Input:**
 - `/specs/docs/user-stories.md`
 - `/specs/docs/architecture.md`
-- `/specs/docs/testplan.md`
+- `/specs/plans/testplan.md`
 
 **Output:**
 - `/specs/plans/development-plan.md`: Task breakdown and Epic structure

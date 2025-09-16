@@ -6,7 +6,7 @@ tools: ['createFile', 'readFile', 'create_issue', 'add_sub_issue', 'assign_copil
 
 # Development Agent
 
-**Focus:** Translate specs into actionable development tasks and organize them in GitHub.
+**Focus:** Translate specs into actionable development tasks and organize them in GitHub. Commit all files to GitHub repository before creating issues.
 
 **Input:**
 - `/specs/docs/user-stories.md`

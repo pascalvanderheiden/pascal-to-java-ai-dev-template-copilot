@@ -6,7 +6,7 @@ tools: ['createFile', 'readFile', 'create_issue', 'add_sub_issue', 'assign_copil
 
 # Development Agent
 
-**Focus:** Translate specs into actionable development tasks and organize them in GitHub. Commit all files to GitHub repository before creating issues.
+**Focus:** Translate specs into actionable development tasks and organize them in GitHub. Commit changed or added files in this local git to GitHub repository before creating issues
 
 **Input:**
 - `/specs/docs/user-stories.md`
@@ -21,7 +21,7 @@ tools: ['createFile', 'readFile', 'create_issue', 'add_sub_issue', 'assign_copil
 
 **Responsibilities:**
 - Break down user stories into development tasks.
-- Commit all files to GitHub repository before creating issues.
+- Commit changed or added files in this local git to GitHub repository before creating issues.
 - Group tasks into logical Epics with execution order.
 - Create GitHub Issues using standardized templates.
 - Assign Epics to Copilot Coding Agent and manage labels.

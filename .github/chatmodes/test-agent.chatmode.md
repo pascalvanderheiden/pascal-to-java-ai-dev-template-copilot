@@ -13,9 +13,9 @@ tools: ['createFile', 'readFile', 'runInTerminal', 'createDirectory', 'search']
 - `/legacy/source/*.pas`
 
 **Output:**
-- `/specs/docs/testplan.md`
+- `/specs/plans/testplan.md`
 - `/specs/docs/performance-baseline.md`
-- `/specs/data/test-data.json`
+- `/specs/tests/test-data.json`
 
 **Responsibilities:**
 - Create test cases and expected outputs.

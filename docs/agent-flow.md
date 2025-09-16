@@ -27,7 +27,7 @@ flowchart TD
 | ✍️ Spec Agent | Analyzer Agent | user-stories.md, architecture.md, architecture.mmd | 🧪 Test Agent, 🧑‍💻 Development Agent | Markdown |
 | 🧪 Test Agent | Spec Agent | testplan.md, performance-baseline.md, test-data.json | 🧑‍💻 Development Agent | Markdown |
 | 🧑‍💻 Development Agent | Spec Agent, Test Agent | development-plan.md, GitHub Issues & Epics | 📚 Documentation Agent, 👨‍💻 GitHub Copilot Coding Agent | Markdown, GitHub |
-| 📚 Documentation Agent | All agents | mapping.md, changelog.md, migration-flow.mmd | Everyone | Markdown |
+| 📚 Documentation Agent | All agents | mapping.md, changelog.md | Everyone | Markdown |
 | 👨‍💻 GitHub Copilot Coding Agent | Development Agent | Java code, PRs, commits | 🧪 Test Agent, 📚 Documentation Agent | GitHub Issues & PRs |
 
 ## Migration Flow

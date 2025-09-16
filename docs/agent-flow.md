@@ -82,15 +82,14 @@ specs/
 │   ├── analysis.md                 # Pascal code analysis
 │   ├── user-stories.md            # Functional requirements
 │   ├── architecture.md            # Java design specifications
-│   ├── testplan.md                # Testing strategy
 │   ├── performance-baseline.md    # Performance requirements
 │   ├── mapping.md                 # Pascal→Java translation guide
 │   └── changelog.md               # Migration timeline
 ├── diagrams/
 │   ├── code-structure.mmd         # Pascal code structure
-│   ├── architecture.mmd           # Java architecture
-│   └── migration-flow.mmd         # Migration process flow
+│   └── architecture.mmd           # Java architecture
 ├── plans/
+│   ├── testplan.md                # Testing strategy
 │   └── development-plan.md        # Implementation roadmap
 └── tests/
     └── test-data.json             # Test scenarios and data

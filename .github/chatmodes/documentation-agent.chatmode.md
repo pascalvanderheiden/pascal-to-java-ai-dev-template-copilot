@@ -17,5 +17,5 @@ tools: ['createFile', 'readFile', 'get_syntax_docs', 'createDirectory', 'search'
 
 **Responsibilities:**
 - Document Pascal ↔ Java mapping.
-- Maintain changelog and visual trail.
+- Maintain changelog.
 - Support onboarding and traceability.

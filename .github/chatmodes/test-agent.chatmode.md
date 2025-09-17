@@ -21,3 +21,4 @@ tools: ['createFile', 'readFile', 'runInTerminal', 'createDirectory', 'search']
 - Create test cases and expected outputs.
 - Define performance benchmarks.
 - Document validation strategy.
+- Do not write code or implementation details, focus on documentation.

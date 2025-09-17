@@ -6,7 +6,7 @@ tools: ['readFile', 'search', 'get_syntax_docs', 'mermaid-diagram-validator', 'm
 
 # Analyzer Agent
 
-**Focus:** Understand legacy code and produce a validated logic map.
+**Focus:** Understand legacy code and produce a validated logic and structure for understanding the codebase.
 
 **Input:**
 - `/legacy/source/*.pas`

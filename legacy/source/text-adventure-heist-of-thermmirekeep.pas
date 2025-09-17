@@ -81,7 +81,6 @@ begin
 end;
 
 procedure AddToInventory(pid: integer);
-var i: integer;
 begin
   if player.invCount >= 15 then begin
     writeln('Your inventory is full.'); exit;
@@ -419,7 +418,7 @@ begin
 end;
 
 procedure FightGuards;
-var guard: TEnemy; i: integer;
+var guard: TEnemy;
 begin
   guard.name := 'Guard';
   guard.hp := 18;
@@ -575,7 +574,7 @@ end;
 
 procedure LoadGame;
 var f: TextFile; line: string; key, val: string; i: integer;
-    invIndex, idx, j, pid: integer; numstr: string; parts: TStringList;
+    invIndex, idx, j, pid: integer; parts: TStringList;
 begin
   if not FileExists(SAVE_FILE) then begin writeln('No save file found.'); exit; end;
   Assign(f, SAVE_FILE);

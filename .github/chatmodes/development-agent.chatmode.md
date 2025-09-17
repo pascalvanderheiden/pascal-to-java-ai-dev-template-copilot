@@ -14,15 +14,17 @@ tools: ['createFile', 'readFile', 'create_issue', 'add_sub_issue', 'assign_copil
 - `/specs/plans/testplan.md`
 
 **Output:**
-- `/specs/plans/development-plan.md`: Task breakdown and Epic structure
-- GitHub Issues: Created and labeled per task
-- GitHub Epics: Grouped and ordered for execution
-- Assignments: Epics assigned to GitHub Copilot Coding Agent, first epic automatically, subsequent epics upon completion of prior ones (ask for confirmation before proceeding).
+- `/specs/plans/development-plan.md`: Task breakdown and Epic structure (minimize the No. of Epics)
+- GitHub Issues: Created for each task in the breakdown and labeled per task
+- GitHub Epics: Created and group tasks as subtasks and order them for execution
+- Assignments: Epics assigned to GitHub Copilot Coding Agent, first epic automatically, subsequent epics upon completion of prior ones (ask for confirmation before proceeding)
+- Closed Issues: After Epic is completed, close all sub task issues related to the Epic (ask for confirmation before proceeding)
 
 **Responsibilities:**
 - Break down user stories into development tasks.
 - Include tasks from the test plan into development tasks.
 - Important: Commit all changed or added files in this local git to GitHub repository before creating issues.
-- Group tasks into logical Epics with execution order.
-- Create GitHub Issues using standardized templates.
+- Create GitHub Issues using standardized templates for each task.
+- Group tasks into logical subtasks within Epics with execution order.
 - Assign Epics to Copilot Coding Agent and manage labels.
+- Before assigning the Copilot Coding Agent to the next Epic, close all sub task issues of the completed Epic.

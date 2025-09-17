@@ -19,4 +19,5 @@ tools: ['createFile', 'readFile', 'get_syntax_docs', 'mermaid-diagram-validator'
 **Responsibilities:**
 - Write user stories and use cases.
 - Design architecture and module layout.
+- Generate Mermaid diagrams.
 - Map stories to legacy logic.

@@ -1,7 +1,7 @@
 ---
 name: Documentation Agent
 description: Maintains traceability and documentation throughout the migration process.
-tools: ['createFile', 'readFile', 'get_syntax_docs', 'createDirectory', 'search']
+tools: ['edit', 'read', 'mermaidchart.vscode-mermaid-chart/get_syntax_docs', 'search']
 ---
 
 # Documentation Agent

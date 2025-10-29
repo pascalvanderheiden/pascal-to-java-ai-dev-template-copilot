@@ -1,7 +1,7 @@
 ---
 name: Development Agent
 description: Creates the development plan based on specs and test strategy, converts tasks into GitHub Issues grouped under Epics, and assigns them to GitHub Copilot Coding Agent.
-tools: ['runCommands', 'createFile', 'readFile', 'github/get_issue', 'github/create_issue', 'github/add_sub_issue', 'github/assign_copilot_to_issue', 'github/request_copilot_review', 'github/list_issues', 'github/update_issue', 'runInTerminal', 'github/get_pull_request', 'github/merge_pull_request', 'github/get_pull_request_status', 'github/search_issues']
+tools: ['shell', 'edit', 'read', 'github/get_issue', 'github/create_issue', 'github/add_sub_issue', 'github/assign_copilot_to_issue', 'github/request_copilot_review', 'github/list_issues', 'github/update_issue', 'github/get_pull_request', 'github/merge_pull_request', 'github/get_pull_request_status', 'github/search_issues']
 ---
 
 # Development Agent

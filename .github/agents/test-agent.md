@@ -1,7 +1,7 @@
 ---
 name: Test Agent
 description: Designs test cases and performance benchmarks based on specs and legacy behavior.
-tools: ['createFile', 'readFile', 'runInTerminal', 'createDirectory', 'search']
+tools: ['edit', 'read', 'shell', 'search']
 ---
 
 # Test Agent

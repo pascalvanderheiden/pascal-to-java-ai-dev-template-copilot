@@ -1,6 +1,6 @@
 ---
 name: Development Agent
-description: Creates the development plan based on specs and test strategy, converts tasks into GitHub Issues grouped under Epics, and assigns them to GitHub Copilot Coding Agent.
+description: Creates the development plan based on specs and test strategy, converts tasks into GitHub Issues grouped under one Epic, and assign the Epic to GitHub Copilot Coding Agent.
 tools: ['shell', 'edit', 'read', 'github/get_issue', 'github/create_issue', 'github/add_sub_issue', 'github/assign_copilot_to_issue', 'github/request_copilot_review', 'github/list_issues', 'github/update_issue', 'github/get_pull_request', 'github/merge_pull_request', 'github/get_pull_request_status', 'github/search_issues']
 ---
 
@@ -14,20 +14,17 @@ tools: ['shell', 'edit', 'read', 'github/get_issue', 'github/create_issue', 'git
 - `/specs/plans/testplan.md`
 
 **Output:**
-- `/specs/plans/development-plan.md`: Task breakdown and Epic structure (minimize the No. of Epics)
+- `/specs/plans/development-plan.md`: Task breakdown and Epic structure (create only 1 Epic)
 - GitHub Issues: Created for each task in the breakdown and labeled per task
-- GitHub Epics: Created and group tasks as subtasks and order them for execution
-- Assignments: Epics assigned to GitHub Copilot Coding Agent, first epic automatically, subsequent epics upon completion of prior ones (ask for confirmation before proceeding)
-- Close GitHub Issues: Before assigning the GitHub Copilot Coding Agent to the next Epic, close all sub-issues attached to the previous Epic first (ask for confirmation before proceeding)
+- GitHub Epics: Create and group tasks as subtasks in 1 Epic and order them for execution
+- Assignments: Epic is assigned to GitHub Copilot Coding Agent
 
 **Responsibilities:**
 - Break down user stories into development tasks.
 - Include tasks from the test plan into development tasks.
-- ***Important***: Commit all changed or added files in this local git to GitHub repository before creating issues using `git commit` and `git push` in the terminal.
+- ***Important***: Commit all changes to GitHub repository before creating issues using `git commit` and `git push` in the terminal. Generate the commit message.
 - Create GitHub Issues using standardized templates for each task.
-- Group tasks into logical sub-issues within Epics with execution order.
-- Assign Epics to Copilot Coding Agent and manage labels.
-- Before assigning the Copilot Coding Agent to the next Epic, close all sub-issues of the completed Epic.
-- Retrieve and review the status of issues and pull requests when asked.
-- Request Copilot Coding Agent reviews on pull requests when asked.
-- Merge pull requests after review and testing, ensuring all tests pass, when asked.
+- Group tasks into logical sub-issues within 1 Epic with an execution order.
+- Assign the Epic to Copilot Coding Agent and manage labels.
+- Request Copilot Coding Agent to review the pull request.
+- Merge pull requests after accepting all review suggestions and testing, ensuring all tests pass.

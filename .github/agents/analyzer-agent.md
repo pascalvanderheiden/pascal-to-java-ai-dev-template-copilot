@@ -1,7 +1,7 @@
 ---
 name: Analyser Agent
 description: Analyzes legacy Turbo Pascal code and produces validated logic and structure for migration.
-tools: ['readFile', 'search', 'get_syntax_docs', 'mermaid-diagram-validator', 'mermaid-diagram-preview', 'createFile']
+tools: ['readFile', 'search', 'get_syntax_docs', 'mermaidchart.vscode-mermaid-chart/mermaid-diagram-validator', 'mermaidchart.vscode-mermaid-chart/mermaid-diagram-preview', 'createFile']
 ---
 
 # Analyzer Agent

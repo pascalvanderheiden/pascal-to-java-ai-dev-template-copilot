@@ -1,7 +1,6 @@
 ---
 name: Analyser Agent
 description: Analyzes legacy Turbo Pascal code and produces validated logic and structure for migration.
-model: Claude Sonnet 4
 tools: ['readFile', 'search', 'get_syntax_docs', 'mermaid-diagram-validator', 'mermaid-diagram-preview', 'createFile']
 ---
 

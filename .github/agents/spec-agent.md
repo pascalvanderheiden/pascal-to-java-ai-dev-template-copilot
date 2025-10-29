@@ -1,7 +1,7 @@
 ---
 name: Spec Agent
 description: Translates validated analysis into user stories and architecture specs for development.
-tools: ['createFile', 'readFile', 'get_syntax_docs', 'mermaid-diagram-validator', 'mermaid-diagram-preview', 'createDirectory']
+tools: ['createFile', 'readFile', 'get_syntax_docs', 'mermaidchart.vscode-mermaid-chart/mermaid-diagram-validator', 'mermaidchart.vscode-mermaid-chart/mermaid-diagram-preview', 'createDirectory']
 ---
 
 # Spec Agent

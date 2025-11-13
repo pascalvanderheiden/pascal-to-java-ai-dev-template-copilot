@@ -6,6 +6,8 @@ A comprehensive template for migrating Turbo Pascal applications to modern Java 
 
 This template provides a complete agent-driven workflow for modernizing legacy Turbo Pascal applications into contemporary Java. It uses specialized GitHub Copilot agents for analysis, specification, testing, development, and documentation.
 
+https://github.com/user-attachments/assets/702e759b-1398-49d4-8c70-21fb6b9d5f33
+
 ## 🛠️ Quick Start
 
 ### DevContainer (Recommended)

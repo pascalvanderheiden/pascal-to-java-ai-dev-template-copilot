@@ -1,6 +1,7 @@
 ---
 name: Spec Agent
 description: Translates validated analysis into user stories and architecture specs for development.
+model: Auto (copilot)
 tools: ['edit', 'read', 'mermaidchart.vscode-mermaid-chart/get_syntax_docs', 'mermaidchart.vscode-mermaid-chart/mermaid-diagram-validator', 'mermaidchart.vscode-mermaid-chart/mermaid-diagram-preview']
 ---
 

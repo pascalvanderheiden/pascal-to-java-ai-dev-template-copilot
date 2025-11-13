@@ -1,6 +1,7 @@
 ---
 name: Test Agent
 description: Designs test cases and performance benchmarks based on specs and legacy behavior.
+model: Auto (copilot)
 tools: ['edit', 'read', 'shell', 'search']
 ---
 

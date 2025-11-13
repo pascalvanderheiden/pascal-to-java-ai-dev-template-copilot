@@ -21,7 +21,7 @@ echo
 
 # Check if we're in the right directory
 echo "2. Checking project structure..."
-if [ -f "legacy/source/text-adventure-example.pas" ]; then
+if [ -f "legacy/source/text-adventure-heist-of-thermmirekeep.pas" ]; then
     echo "✅ Found Pascal source files"
 else
     echo "❌ Pascal source files not found"
@@ -32,10 +32,10 @@ echo
 
 # Check if example program exists
 echo "3. Checking example program..."
-if [ -f "legacy/source/text-adventure-example.pas" ]; then
-    echo "✅ text-adventure-example.pas is available"
+if [ -f "legacy/source/text-adventure-heist-of-thermmirekeep.pas" ]; then
+    echo "✅ text-adventure-heist-of-thermmirekeep.pas is available"
 else
-    echo "❌ text-adventure-example.pas not found"
+    echo "❌ text-adventure-heist-of-thermmirekeep.pas not found"
     echo "   This is the main example program for testing"
     exit 1
 fi
@@ -46,11 +46,11 @@ echo "4. Testing Pascal compilation..."
 cd legacy/source
 
 # Compile the text adventure example
-if fpc -Mtp text-adventure-example.pas &> /dev/null; then
-    echo "✅ Text adventure example compiles successfully"
-    rm -f text-adventure-example.o text-adventure-example.ppu text-adventure-example
+if fpc -Mtp text-adventure-heist-of-thermmirekeep.pas &> /dev/null; then
+    echo "✅ Text adventure heist-of-thermmirekeep compiles successfully"
+    rm -f text-adventure-heist-of-thermmirekeep.o text-adventure-heist-of-thermmirekeep.ppu text-adventure-heist-of-thermmirekeep
 else
-    echo "❌ Text adventure example compilation failed"
+    echo "❌ Text adventure heist-of-thermmirekeep compilation failed"
     echo "   Check Free Pascal installation and crt unit availability"
     exit 1
 fi
@@ -72,7 +72,7 @@ echo
 echo "Next steps:"
 echo "1. Open VSCode in this directory"
 echo "2. Install the Pascal extension"
-echo "3. Open legacy/source/text-adventure-example.pas"
+echo "3. Open legacy/source/text-adventure-heist-of-thermmirekeep.pas"
 echo "4. Press Cmd+Shift+P and run 'Tasks: Run Task' > 'Compile Pascal'"
 echo "5. Or use Code Runner (Ctrl+Alt+N) to compile and run"
 echo "6. Try playing the text adventure game!"

@@ -1,5 +1,5 @@
 ---
-mode: spec-agent
+agent: spec-agent
 ---
 
 Based on the analysis in `/specs/docs/analysis.md`, create comprehensive specifications for the Java text adventure game.

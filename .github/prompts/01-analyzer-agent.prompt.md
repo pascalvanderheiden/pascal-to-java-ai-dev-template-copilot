@@ -1,5 +1,5 @@
 ---
-mode: analyzer-agent
+agent: analyzer-agent
 ---
 
 Analyze the Pascal text adventure game at `/legacy/source/` folder.

@@ -69,7 +69,7 @@ Designs test strategy, performance benchmarks, and validation criteria.
 
 **Output:** `specs/plans/testplan.md`, `specs/docs/performance-baseline.md`, `specs/tests/test-data.json`
 
-### 4️⃣ **Development Agent**
+### 4️⃣ **Developer Agent**
 Creates development plan and GitHub Issues grouped under Epics, then assigns to GitHub Copilot Coding Agent.
 
 **Output:** `specs/plans/development-plan.md`, GitHub Issues & Epics

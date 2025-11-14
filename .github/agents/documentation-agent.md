@@ -1,5 +1,5 @@
 ---
-name: Documentation Agent
+name: documentation-agent
 description: Maintains traceability and documentation throughout the migration process.
 model: Auto (copilot)
 tools: ['edit', 'read', 'shell', 'mermaidchart.vscode-mermaid-chart/get_syntax_docs', 'search']

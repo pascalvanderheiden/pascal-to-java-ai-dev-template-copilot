@@ -52,7 +52,7 @@ mvn package                 # Package
 
 ## 🤖 Agent-Driven Migration Workflow
 
-The migration uses five specialized GitHub Copilot agents (see [`docs/agent-flow.md`](docs/agent-flow.md)):
+The migration uses specialized GitHub Copilot agents with flexible planning and implementation paths (see [`docs/agent-flow.md`](docs/agent-flow.md)):
 
 ### 1️⃣ **Analyzer Agent**
 Analyzes Pascal code structure, extracts business logic, identifies dependencies, and generates Mermaid diagrams.
@@ -69,18 +69,22 @@ Designs test strategy, performance benchmarks, and validation criteria.
 
 **Output:** `specs/plans/testplan.md`, `specs/docs/performance-baseline.md`, `specs/tests/test-data.json`
 
-### 4️⃣ **Developer Agent**
-Creates development plan and GitHub Issues grouped under Epics, then assigns to GitHub Copilot Coding Agent.
+### 4️⃣ **Planning Phase** (Choose One)
+- **Option 1 - Plan Agent**: Custom agent creates development plan
+- **Option 2 - Plan Mode**: VS Code Copilot Chat Plan Mode creates development plan
 
-**Output:** `specs/plans/development-plan.md`, GitHub Issues & Epics
+**Output:** `specs/plans/development-plan.md`
 
-### 5️⃣ **Documentation Agent**
+### 5️⃣ **Implementation Phase** (Choose One)
+- **Path A - Direct Execution**: GitHub Copilot Coding Agent executes plan directly
+- **Path B - GitHub Issues**: Create GitHub Issues for traceability, then assign to GitHub Copilot Coding Agent
+
+**Output:** Java code, pull requests, (optional) GitHub Issues
+
+### 6️⃣ **Documentation Agent**
 Maintains Pascal↔Java mapping and migration changelog for traceability.
 
 **Output:** `specs/docs/mapping.md`, `specs/docs/changelog.md`
-
-### 6️⃣ **GitHub Copilot Coding Agent**
-Implements Java code based on assigned GitHub Issues and creates pull requests.
 
 ## 📚 Documentation
 

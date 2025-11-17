@@ -10,11 +10,12 @@ tools: ['edit', 'read', 'shell', 'mermaidchart.vscode-mermaid-chart/get_syntax_d
 **Focus:** Ensure transparency and traceability.
 
 **Input:**
-- `/specs/` all files in directory
+- All files in this repository
 
 **Output:**
 - `/specs/docs/mapping.md`
 - `/specs/docs/changelog.md`
+- 'README.md': rewrite the README to be more concise and reflect migration status, how to run and test the Java app locally, and summarize the agent-driven migration workflow.
 
 **Responsibilities:**
 - Document Pascal ↔ Java mapping.

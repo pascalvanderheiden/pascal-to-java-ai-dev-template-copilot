@@ -13,9 +13,16 @@ This model uses five specialized agents to manage the migration of a legacy Turb
 flowchart TD
     A[🧠 Analyzer Agent] --> B[✍️ Spec Agent]
     B --> C[🧪 Test Agent]
-    C -->|Path A: IDE Route<br/>04-01| D[🧑‍💻 Developer Agent]
-    C -->|Path B: Direct<br/>04-02| F[👨‍💻 GitHub Copilot Coding Agent]
-    D -->|GitHub Issues| F
+    C --> CHOICE{Choose Planning Tool}
+    CHOICE -->|Option 1| D[📋 Plan Agent<br/>Custom Agent]
+    CHOICE -->|Option 2| G[📋 Plan Mode<br/>VS Code Copilot Chat]
+    D --> PLAN[Development Plan]
+    G --> PLAN
+    PLAN --> IMPL{Choose Implementation}
+    IMPL -->|Path A: Direct Execution| F[👨‍💻 GitHub Copilot Coding Agent]
+    IMPL -->|Path B: GitHub Issues| H[Create GitHub Issues]
+    H --> I[Assign to GitHub Copilot Coding Agent]
+    I --> F
     F --> E[📚 Documentation Agent]
 ```
 
@@ -25,27 +32,34 @@ flowchart TD
 |-------|---------------|----------|--------------|---------------------|
 | 🧠 Analyzer Agent | Raw Pascal code | analysis.md, code-structure.mmd | ✍️ Spec Agent | Markdown, Mermaid |
 | ✍️ Spec Agent | Analyzer Agent | user-stories.md, architecture.md, architecture.mmd | 🧪 Test Agent | Markdown |
-| 🧪 Test Agent | Spec Agent | testplan.md, performance-baseline.md, test-data.json | 🧑‍💻 Developer Agent (Path A) OR 👨‍💻 Coding Agent (Path B) | Markdown |
-| 🧑‍💻 Developer Agent | Spec Agent, Test Agent | development-plan.md, GitHub Issues & Epics | 👨‍💻 GitHub Copilot Coding Agent | Markdown, GitHub |
-| 👨‍💻 GitHub Copilot Coding Agent | Developer Agent (Path A) OR Test Agent (Path B) | Java code, PRs, commits, development-plan.md (Path B) | 📚 Documentation Agent | GitHub Issues & PRs |
+| 🧪 Test Agent | Spec Agent | testplan.md, performance-baseline.md, test-data.json | **Choice:** Plan Agent OR Plan Mode | Markdown |
+| 📋 Plan Agent (Option 1) | Test Agent | development-plan.md | **Choice:** Direct Execution OR GitHub Issues | Markdown |
+| 📋 Plan Mode (Option 2) | Test Agent | development-plan.md | **Choice:** Direct Execution OR GitHub Issues | Markdown |
+| 👨‍💻 GitHub Copilot Coding Agent | Development Plan (Path A: Direct) OR GitHub Issues (Path B) | Java code, PRs, commits | 📚 Documentation Agent | Code, GitHub PRs |
 | 📚 Documentation Agent | All agents | mapping.md, changelog.md | Everyone | Markdown |
 
 ## 📋 Example Prompts
 
 Simple prompts for each agent chatmode to execute the migration workflow. Each file has YAML front matter with the mode and a minimal prompt.
 
-| File | Agent | Purpose |
-|------|-------|---------|  
+| File | Agent/Mode | Purpose |
+|------|------------|---------|  
 | [`01-analyzer-agent.prompt.md`](../.github/prompts/01-analyzer-agent.prompt.md) | `analyzer-agent` | Analyze Pascal code |
 | [`02-spec-agent.prompt.md`](../.github/prompts/02-spec-agent.prompt.md) | `spec-agent` | Create Java specifications |
 | [`03-test-agent.prompt.md`](../.github/prompts/03-test-agent.prompt.md) | `test-agent` | Design test strategy |
-| [`04-01-developer-agent-IDE.prompt.md`](../.github/prompts/04-01-developer-agent-IDE.prompt.md) | `developer-agent` | Create plan & GitHub Issues (IDE) |
-| [`04-02-coding-agent-GH.prompt.md`](../.github/prompts/04-02-coding-agent-GH.prompt.md) | `agent` | Create plan & execute (Agent HQ) |
-| [`05-documentation-agent.prompt.md`](../.github/prompts/05-documentation-agent.prompt.md) | `documentation-agent` | Create migration docs |
+| [`04-01-plan-mode.prompt.md`](../.github/prompts/04-01-plan-mode.prompt.md) | `Plan Mode` | **Option 1:** Create development plan (VS Code Copilot Chat) |
+| [`04-02-plan-agent.prompt.md`](../.github/prompts/04-02-plan-agent.prompt.md) | `plan-agent` | **Option 2:** Create development plan (Custom Agent) |
+| [`05-01-agent-mode.prompt.md`](../.github/prompts/05-01-agent-mode.prompt.md) | `#github-pull-request_copilot-coding-agent` | **Path A:** Direct execution by Coding Agent |
+| [`05-02-contributor-agent.prompt.md`](../.github/prompts/05-02-contributor-agent.prompt.md) | GitHub Issues | **Path B:** Create GitHub Issues, assign to Coding Agent |
+| [`06-documentation-agent.prompt.md`](../.github/prompts/06-documentation-agent.prompt.md) | `documentation-agent` | Create migration docs |
 
-**Two execution paths after Test Agent:**
-- **Path A - IDE Route (04-01)**: Use Developer Agent to create development plan and GitHub Issues, then assign to GitHub Copilot Coding Agent via GitHub Issues (recommended for VS Code)
-- **Path B - Direct Route (04-02)**: Skip Developer Agent and use Coding Agent directly to create development plan AND execute implementation (recommended for Agent HQ/direct execution)
+**Planning Tool Choice (After Test Agent):**
+- **Option 1 - Plan Agent**: Use custom `plan-agent` to create development plan
+- **Option 2 - Plan Mode**: Use VS Code Copilot Chat Plan Mode to create development plan
+
+**Implementation Path Choice (After Plan Creation):**
+- **Path A - Direct Execution**: Hand off plan directly to GitHub Copilot Coding Agent for immediate implementation
+- **Path B - GitHub Issues**: Create GitHub Issues from plan first for traceability, then assign to GitHub Copilot Coding Agent
 
 ### 🚀 Execution Workflow
 Execute sequentially for optimal results:
@@ -53,13 +67,16 @@ Execute sequentially for optimal results:
 1. **Analyzer Agent** → Analyzes Pascal code structure and logic
 2. **Spec Agent** → Creates Java specifications and architecture  
 3. **Test Agent** → Designs comprehensive test strategy
-4. **Choose your path:**
-   - **Path A - IDE Route (04-01)**: 
-     - **Developer Agent** → Creates development plan and GitHub Issues
-     - **GitHub Copilot Coding Agent** → Implements Java solution from assigned Issues
-   - **Path B - Direct Route (04-02)**:
-     - **GitHub Copilot Coding Agent** → Creates development plan AND executes implementation
-5. **Documentation Agent** → Maintains migration traceability
+4. **Choose your planning tool:**
+   - **Option 1 - Plan Agent**: Use custom agent to create development plan
+   - **Option 2 - Plan Mode**: Use VS Code Copilot Chat Plan Mode to create development plan
+5. **Choose your implementation path:**
+   - **Path A - Direct Execution**: 
+     - **GitHub Copilot Coding Agent** → Executes implementation directly from plan
+   - **Path B - GitHub Issues**:
+     - Create GitHub Issues from plan for traceability
+     - **Assign to GitHub Copilot Coding Agent** → Implements from assigned Issues
+6. **Documentation Agent** → Maintains migration traceability
 
 ## 📁 Expected Artifacts
 
